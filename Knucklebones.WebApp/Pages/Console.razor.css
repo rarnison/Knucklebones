@@ -1,0 +1,25 @@
+.console-body {
+    aspect-ratio: 16/9;
+    min-height: 250px;
+    border-radius: 15px;
+    background-color: #333;
+    color: #ccc;
+    padding: 20px;
+    filter: drop-shadow(0 8px 10px rgba(0,0,0,0.5));
+    font-family: 'Courier New', Courier, monospace;
+    cursor: hand;
+    white-space: pre;
+
+    transform: scaleX(1) scaleY(1);
+    transition: all 1s ease-in-out;
+}
+
+.console-body:hover {
+    transform: scaleX(1.01) scaleY(1.01);
+}
+
+.console-page {
+    display: grid;
+    align-items: center;
+    flex:1;
+}

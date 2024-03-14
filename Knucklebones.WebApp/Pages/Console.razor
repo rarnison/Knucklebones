@@ -1,0 +1,46 @@
+﻿@page "/console"
+@using Knucklebones.WebApp.Versions.Console
+@using Knucklebones.Console.Screen
+
+<PageTitle>Console Version</PageTitle>
+
+<div class="console-page">
+    <section class="console-body" tabindex="0" @onclick="StartGame" @onkeydown="HandleInput">
+        @_consoleOut
+    </section>
+</div>
+
+@code {
+    private bool _inGame;
+    private MarkupString _consoleOut = new("Click to begin");
+
+    private readonly CapturedInput _input = new();
+
+    public async void StartGame()
+    {
+        if (_inGame) return;
+        _inGame = true;
+
+        ConsoleFriend.RedirectConsoleOut(output => InvokeAsync(() =>
+        {
+            _consoleOut = new MarkupString(output.Replace("\r\n", "<br>"));
+            StateHasChanged();
+        }));
+        
+        Input.Initialise(_input);
+        Task.Run(() =>
+        {
+            Screens.Title.Navigate();
+            _input.Clear();
+            _inGame = false;
+            System.Console.WriteLine("Click to begin");
+        });
+        
+    }   
+
+    private void HandleInput(KeyboardEventArgs args)
+    {
+        _input.SendKey(args);
+    }
+
+}
