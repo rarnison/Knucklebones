@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Update="Screen\Screen.Settings.cs">
+        <DependentUpon>Screen.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Screen\Screen.Title.cs">
+        <DependentUpon>Screen.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Screen\Screen.Game.cs">
+        <DependentUpon>Screen.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Screen\Screen.Error.cs">
+        <DependentUpon>Screen.Static.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Screen\Screen.GameOver.cs">
+        <DependentUpon>Screen.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Screen\Screen.Static.cs">
+        <DependentUpon>Screen.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+</Project>
